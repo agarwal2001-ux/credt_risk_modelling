@@ -1,0 +1,4 @@
+2025-07-12 03:52:21,364 - make_dataset - INFO - df1, df2 are read successfully
+2025-07-12 03:52:21,440 - make_dataset - INFO - Both dataframes have replaced -99999 and lowered column names
+2025-07-12 03:52:21,519 - make_dataset - INFO - Data merged successfully
+2025-07-12 03:52:24,206 - make_dataset - INFO - Saved successfully to data\interim
