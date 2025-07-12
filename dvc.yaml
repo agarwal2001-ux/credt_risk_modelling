@@ -19,3 +19,10 @@ stages:
     - src/features/build_features.py
     outs:
     - data/final_model
+  train_model:
+    cmd: python src/models/train_model.py
+    deps:
+    - data/final_model/model_build.csv
+    - src/models/train_model.py
+    outs:
+    - references
