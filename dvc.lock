@@ -30,3 +30,20 @@ stages:
       md5: 839793b0b47ee7b5ef75bc6c43781f87.dir
       size: 23842670
       nfiles: 1
+  build_features:
+    cmd: python src/features/build_features.py
+    deps:
+    - path: data/imputed/imputation.csv
+      hash: md5
+      md5: df7394c01b1628d80e941325bd0b023a
+      size: 23842670
+    - path: src/features/build_features.py
+      hash: md5
+      md5: cefe7d979f4f2e38756ef93b0d5b3d98
+      size: 5613
+    outs:
+    - path: data/final_model
+      hash: md5
+      md5: b1b50a328d99354127a2f5b5df425bd2.dir
+      size: 12374049
+      nfiles: 1

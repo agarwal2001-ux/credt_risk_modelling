@@ -1,3 +1,7 @@
 imputation:
   n_neighbours: 5
   weights: "distance"
+
+build_features:
+  significance_level: 0.05
+  multi_val: 6

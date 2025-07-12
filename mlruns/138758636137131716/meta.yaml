@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/Rahul/Desktop/New%20folder%20%283%29/credit_model/mlruns/138758636137131716
+creation_time: 1752308303627
+experiment_id: '138758636137131716'
+last_update_time: 1752308303627
+lifecycle_stage: active
+name: knn-imputer

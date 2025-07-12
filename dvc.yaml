@@ -12,3 +12,10 @@ stages:
     - src/imputation/imputation.py
     outs:
     - data/imputed
+  build_features:
+    cmd: python src/features/build_features.py
+    deps:
+    - data/imputed/imputation.csv
+    - src/features/build_features.py
+    outs:
+    - data/final_model
