@@ -5,3 +5,10 @@ stages:
     - src/data/make_dataset.py
     outs:
     - data/interim
+  imputation:
+    cmd: python src/imputation/imputation.py
+    deps:
+    - data/interim/merged.csv
+    - src/imputation/imputation.py
+    outs:
+    - data/imputed

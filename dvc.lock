@@ -13,3 +13,20 @@ stages:
       md5: 53a02a410f338b3fe433fe6cf9e070ea.dir
       size: 14130387
       nfiles: 1
+  imputation:
+    cmd: python src/imputation/imputation.py
+    deps:
+    - path: data/interim/merged.csv
+      hash: md5
+      md5: 7d0696fd0eade1e17baed921ca9f0d35
+      size: 14130387
+    - path: src/imputation/imputation.py
+      hash: md5
+      md5: 61d1bdc747173483b9e793dcf8f6b7b3
+      size: 4020
+    outs:
+    - path: data/imputed
+      hash: md5
+      md5: 839793b0b47ee7b5ef75bc6c43781f87.dir
+      size: 23842670
+      nfiles: 1

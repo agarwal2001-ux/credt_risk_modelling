@@ -1,0 +1,6 @@
+2025-07-12 12:53:09,868 - imputation - ERROR - Some error occurred with YAML function: [Errno 2] No such file or directory: 'params.yaml'
+2025-07-12 12:54:47,950 - imputation - INFO - k_neighbours and weights fetched successfully from YAML
+2025-07-12 12:54:48,602 - imputation - INFO - DataFrame retrieved successfully
+2025-07-12 12:54:48,653 - imputation - INFO - Separation is successful
+2025-07-12 13:12:24,505 - imputation - INFO - Imputation is successful
+2025-07-12 13:12:55,113 - imputation - INFO - model_df is saved to data\imputed\imputation.csv
