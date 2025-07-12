@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/New%20folder%20%283%29/credit_model/mlruns/544500200168016444/21a9a3c05da64dd08d993bc8176a8c39/artifacts
+end_time: 1752325134780
+entry_point_name: ''
+experiment_id: '544500200168016444'
+lifecycle_stage: active
+run_id: 21a9a3c05da64dd08d993bc8176a8c39
+run_name: redolent-quail-993
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752325133814
+status: 4
+tags: []
+user_id: Rahul

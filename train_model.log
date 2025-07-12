@@ -1,0 +1,4 @@
+2025-07-12 17:47:13,919 - training - INFO - model build read successful
+2025-07-12 17:47:13,975 - training - INFO - train_test split successful
+2025-07-12 17:47:13,986 - training - INFO - ytrain and ytest transformed
+2025-07-12 17:47:13,989 - training - INFO - encoder saved successfully

@@ -1,0 +1,3 @@
+LGBMClassifier(colsample_bylevel=0.412011819461129,
+               learning_rate=0.6776763436700263, max_depth=9, n_estimators=102,
+               n_jobs=-1, reg_lambda=891, subsample=0.6631783807031165)

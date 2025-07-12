@@ -1,0 +1,40 @@
+digest: 1a2ea03e
+name: dataset
+profile: '{"num_rows": 8214, "num_elements": 369630}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "pct_tl_open_l6m", "required":
+  true}, {"type": "double", "name": "pct_tl_closed_l6m", "required": true}, {"type":
+  "double", "name": "tot_tl_closed_l12m", "required": true}, {"type": "double", "name":
+  "pct_tl_open_l12m", "required": true}, {"type": "double", "name": "pct_tl_closed_l12m",
+  "required": true}, {"type": "double", "name": "tot_missed_pmnt", "required": true},
+  {"type": "double", "name": "cc_tl", "required": true}, {"type": "double", "name":
+  "home_tl", "required": true}, {"type": "double", "name": "pl_tl", "required": true},
+  {"type": "double", "name": "secured_tl", "required": true}, {"type": "double", "name":
+  "unsecured_tl", "required": true}, {"type": "double", "name": "other_tl", "required":
+  true}, {"type": "double", "name": "age_oldest_tl", "required": true}, {"type": "double",
+  "name": "age_newest_tl", "required": true}, {"type": "double", "name": "time_since_recent_payment",
+  "required": true}, {"type": "double", "name": "max_delinquency_level", "required":
+  true}, {"type": "double", "name": "num_deliq_6_12mts", "required": true}, {"type":
+  "double", "name": "max_deliq_6mts", "required": true}, {"type": "double", "name":
+  "max_deliq_12mts", "required": true}, {"type": "double", "name": "num_times_60p_dpd",
+  "required": true}, {"type": "double", "name": "num_std_12mts", "required": true},
+  {"type": "double", "name": "num_sub", "required": true}, {"type": "double", "name":
+  "num_sub_12mts", "required": true}, {"type": "double", "name": "num_dbt", "required":
+  true}, {"type": "double", "name": "num_dbt_12mts", "required": true}, {"type": "double",
+  "name": "num_lss", "required": true}, {"type": "double", "name": "recent_level_of_deliq",
+  "required": true}, {"type": "double", "name": "cc_enq_l12m", "required": true},
+  {"type": "double", "name": "pl_enq_l12m", "required": true}, {"type": "double",
+  "name": "time_since_recent_enq", "required": true}, {"type": "double", "name": "enq_l3m",
+  "required": true}, {"type": "double", "name": "netmonthlyincome", "required": true},
+  {"type": "double", "name": "time_with_curr_empr", "required": true}, {"type": "double",
+  "name": "cc_utilization", "required": true}, {"type": "double", "name": "cc_flag",
+  "required": true}, {"type": "double", "name": "pl_flag", "required": true}, {"type":
+  "double", "name": "pct_pl_enq_l6m_of_ever", "required": true}, {"type": "double",
+  "name": "pct_cc_enq_l6m_of_ever", "required": true}, {"type": "double", "name":
+  "hl_flag", "required": true}, {"type": "double", "name": "gl_flag", "required":
+  true}, {"type": "string", "name": "maritalstatus", "required": true}, {"type": "string",
+  "name": "education", "required": true}, {"type": "string", "name": "gender", "required":
+  true}, {"type": "string", "name": "last_prod_enq2", "required": true}, {"type":
+  "string", "name": "first_prod_enq2", "required": true}]}'
+source: '{"tags": {"mlflow.user": "Rahul", "mlflow.source.name": "src/models/train_model.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "e573fb53329c427ce1e452d1175b18efb0e1e8a9"}}'
+source_type: code

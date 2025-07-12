@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/Rahul/Desktop/New%20folder%20%283%29/credit_model/mlruns/544500200168016444/models/m-b6f1b9efdd5c45a5abf1ac3eece4ad85/artifacts
+creation_timestamp: 1752323745749
+experiment_id: '544500200168016444'
+last_updated_timestamp: 1752323756394
+model_id: m-b6f1b9efdd5c45a5abf1ac3eece4ad85
+model_type: null
+name: model
+source_run_id: 0e43f3f659644a928e2af633ae5ed6db
+status: 2
+status_message: null

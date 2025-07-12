@@ -1,0 +1,47 @@
+2025-07-12 17:55:48,841 - training - INFO - model build read successful
+2025-07-12 17:55:48,886 - training - INFO - train_test split successful
+2025-07-12 17:55:48,901 - training - INFO - ytrain and ytest transformed
+2025-07-12 17:55:48,903 - training - ERROR - error occured - [WinError 183] Cannot create a file when that file already exists: 'references'
+2025-07-12 17:56:27,855 - training - INFO - model build read successful
+2025-07-12 17:56:27,895 - training - INFO - train_test split successful
+2025-07-12 17:56:27,912 - training - INFO - ytrain and ytest transformed
+2025-07-12 17:56:27,914 - training - INFO - encoder saved successfully
+2025-07-12 18:05:30,900 - training - INFO - model build read successful
+2025-07-12 18:05:30,950 - training - INFO - train_test split successful
+2025-07-12 18:05:30,971 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:05:30,974 - training - INFO - encoder saved successfully
+2025-07-12 18:08:57,703 - training - INFO - model build read successful
+2025-07-12 18:08:57,763 - training - INFO - train_test split successful
+2025-07-12 18:08:57,774 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:08:57,793 - training - INFO - encoder saved successfully
+2025-07-12 18:14:30,970 - training - INFO - model build read successful
+2025-07-12 18:14:31,014 - training - INFO - train_test split successful
+2025-07-12 18:14:31,025 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:14:31,027 - training - INFO - encoder saved successfully
+2025-07-12 18:20:32,790 - training - INFO - model build read successful
+2025-07-12 18:20:32,852 - training - INFO - train_test split successful
+2025-07-12 18:20:32,868 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:20:32,871 - training - INFO - encoder saved successfully
+2025-07-12 18:28:54,668 - training - INFO - model build read successful
+2025-07-12 18:28:54,740 - training - INFO - train_test split successful
+2025-07-12 18:28:54,768 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:28:54,771 - training - INFO - encoder saved successfully
+2025-07-12 18:29:41,879 - training - INFO - model build read successful
+2025-07-12 18:29:41,927 - training - INFO - train_test split successful
+2025-07-12 18:29:41,942 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:29:41,944 - training - INFO - encoder saved successfully
+2025-07-12 18:32:46,132 - training - INFO - model build read successful
+2025-07-12 18:32:46,211 - training - INFO - train_test split successful
+2025-07-12 18:32:46,236 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:32:46,242 - training - INFO - encoder saved successfully
+2025-07-12 18:49:35,217 - training - INFO - model build read successful
+2025-07-12 18:49:35,289 - training - INFO - train_test split successful
+2025-07-12 18:49:35,313 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:49:35,317 - training - INFO - encoder saved successfully
+2025-07-12 18:50:13,077 - training - INFO - Final trained model saved
+2025-07-12 18:50:16,252 - training - ERROR - error occured Mix of label input types (string and number)
+2025-07-12 18:51:54,018 - training - INFO - model build read successful
+2025-07-12 18:51:54,090 - training - INFO - train_test split successful
+2025-07-12 18:51:54,108 - training - INFO - ytrain and ytest transformed
+2025-07-12 18:51:54,111 - training - INFO - encoder saved successfully
+2025-07-12 18:52:21,886 - training - INFO - Final trained model saved

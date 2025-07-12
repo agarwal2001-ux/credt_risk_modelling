@@ -56,16 +56,16 @@ stages:
       size: 12374049
     - path: src/models/train_model.py
       hash: md5
-      md5: 405d7d7757757951baae14307f1e432d
-      size: 7660
+      md5: 64533321829f85fc4dc05026be75698d
+      size: 4525
     outs:
-    - path: models/encoder
+    - path: models/encoder/
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
-    - path: models/pipeline
+      md5: 4ff674ef73c099a3d16f3bbb8f114446.dir
+      size: 493
+      nfiles: 1
+    - path: models/pipeline/
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: b001a95e2ad3c5ccc34aaa18700856f7.dir
+      size: 1391498
+      nfiles: 1
