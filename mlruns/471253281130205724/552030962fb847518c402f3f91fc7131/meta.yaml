@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/New%20folder%20%283%29/credit_model/mlruns/471253281130205724/552030962fb847518c402f3f91fc7131/artifacts
+end_time: 1752312611613
+entry_point_name: ''
+experiment_id: '471253281130205724'
+lifecycle_stage: active
+run_id: 552030962fb847518c402f3f91fc7131
+run_name: mercurial-bug-180
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752312560494
+status: 3
+tags: []
+user_id: Rahul

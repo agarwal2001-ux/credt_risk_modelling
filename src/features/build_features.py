@@ -20,7 +20,7 @@ console.setFormatter(formatter)
 file = logging.FileHandler("features.log")
 file.setLevel("DEBUG")
 
-mlflow.set_experiment("knn-imputer")
+mlflow.set_experiment("build_features")
 
 def main():
     

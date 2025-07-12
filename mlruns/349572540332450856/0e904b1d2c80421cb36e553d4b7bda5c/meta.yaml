@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/New%20folder%20%283%29/credit_model/mlruns/349572540332450856/0e904b1d2c80421cb36e553d4b7bda5c/artifacts
+end_time: 1752312552286
+entry_point_name: ''
+experiment_id: '349572540332450856'
+lifecycle_stage: active
+run_id: 0e904b1d2c80421cb36e553d4b7bda5c
+run_name: rogue-zebra-596
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752311824355
+status: 3
+tags: []
+user_id: Rahul

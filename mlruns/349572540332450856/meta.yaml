@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/Rahul/Desktop/New%20folder%20%283%29/credit_model/mlruns/349572540332450856
+creation_time: 1752311822373
+experiment_id: '349572540332450856'
+last_update_time: 1752311822373
+lifecycle_stage: active
+name: knn-imputation

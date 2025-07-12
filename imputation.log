@@ -4,3 +4,8 @@
 2025-07-12 12:54:48,653 - imputation - INFO - Separation is successful
 2025-07-12 13:12:24,505 - imputation - INFO - Imputation is successful
 2025-07-12 13:12:55,113 - imputation - INFO - model_df is saved to data\imputed\imputation.csv
+2025-07-12 14:47:04,447 - imputation - INFO - k_neighbours and weights fetched successfully from YAML
+2025-07-12 14:47:05,017 - imputation - INFO - DataFrame retrieved successfully
+2025-07-12 14:47:05,067 - imputation - INFO - Separation is successful
+2025-07-12 14:59:07,929 - imputation - INFO - Imputation is successful
+2025-07-12 14:59:12,245 - imputation - INFO - model_df is saved to data\imputed\imputation.csv
