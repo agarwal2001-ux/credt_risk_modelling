@@ -16,6 +16,11 @@ import optuna
 from optuna.integration.mlflow import MLflowCallback
 import json
 
+encoder_path = os.path.join("models","encoder")
+os.makedirs(encoder_path)
+pipe_path = os.path.join("models","pipeline")
+os.makedirs(pipe_path)
+
 # logger configuration
 logger = logging.getLogger("training")
 logger.setLevel(logging.DEBUG)
@@ -38,6 +43,7 @@ logger.addHandler(file)
 mlflow.set_experiment("training")
 
 def main():
+    mlflow.autolog()
 
     with mlflow.start_run():
         def read(path):
@@ -51,7 +57,7 @@ def main():
 
         def splitting(df):
             try:
-                xtrain,xtest,ytrain,ytest = train_test_split(df.iloc[:,0:46],df.iloc[:,-1],test_size=0.2,random_state=42)
+                xtrain,xtest,ytrain,ytest = train_test_split(df.iloc[:,0:45],df.iloc[:,-1],test_size=0.2,random_state=42)
                 logger.info("train_test split successful")
                 return xtrain,xtest,ytrain,ytest
             except Exception as e:
@@ -74,7 +80,6 @@ def main():
 
         def find_parameters(xtrain,ytrain,trial):
             try:
-                with mlflow.start_run(nested=True):
                     transformer = ColumnTransformer(
                         [("ordinal",OrdinalEncoder(categories=[["SSC","12TH","UNDER GRADUATE","GRADUATE","POST-GRADUATE","PROFESSIONAL","OTHERS"]],
                         handle_unknown="use_encoded_value",
@@ -111,7 +116,7 @@ def main():
                 raise
         
 
-        def final_model(xtrain,ytrain_transformed,best_params,xtest,ytest):
+        def final_model(xtrain,ytrain_transformed,best_params,xtest,ytest,path):
             try:
                 final_transformer = ColumnTransformer([
                 ("ordinal", OrdinalEncoder(
@@ -127,8 +132,7 @@ def main():
                 ])
 
                 final_pipe.fit(xtrain, ytrain_transformed)
-                os.makedirs("references",exist_ok=True)
-                dump(final_pipe, os.path.join("references", "final_model.joblib"))
+                dump(final_pipe, os.path.join(path, "final_model.joblib"))
                 logger.info("Final trained model saved")
 
                 pred = final_pipe.predict(xtest)
@@ -153,7 +157,7 @@ def main():
         df = read(path=os.path.join("data","final_model"))
         xtrain,xtest,ytrain,ytest = splitting(df)
         
-        ytrain_transformed, ytest_transformed = encoder(ytrain,ytest,os.path.join("references"))
+        ytrain_transformed, ytest_transformed = encoder(ytrain,ytest,encoder_path)
         
         # mlflow with optuna integration
         mlflow_callback = MLflowCallback(
@@ -171,7 +175,7 @@ def main():
         logger.info(f"Best parameters: {best_params}")
 
         # save the best model
-        md = final_model(xtrain,ytrain_transformed,best_params,xtest,ytest)
+        md = final_model(xtrain,ytrain_transformed,best_params,xtest,ytest,pipe_path)
 
 
 

@@ -25,4 +25,5 @@ stages:
     - data/final_model/model_build.csv
     - src/models/train_model.py
     outs:
-    - references
+    - models/encoder
+    - models/pipeline
