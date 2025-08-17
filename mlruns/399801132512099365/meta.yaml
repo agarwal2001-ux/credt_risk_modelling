@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/399801132512099365
+creation_time: 1752173841796
+experiment_id: '399801132512099365'
+last_update_time: 1752173841796
+lifecycle_stage: active
+name: knn-imputer

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/baseline%20model/project_name/mlruns/265011184459685695/441d16af2e1c439db88296ac0c7cf9bf/artifacts
+end_time: 1752175084543
+entry_point_name: ''
+experiment_id: '265011184459685695'
+lifecycle_stage: active
+run_id: 441d16af2e1c439db88296ac0c7cf9bf
+run_name: capricious-koi-386
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752175081563
+status: 3
+tags: []
+user_id: Rahul

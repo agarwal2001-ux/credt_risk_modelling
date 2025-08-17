@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/baseline%20model/project_name/mlruns/254930449245290206/a951826bb2bb4579be7078d4e691bfdc/artifacts
+end_time: 1752174007705
+entry_point_name: ''
+experiment_id: '254930449245290206'
+lifecycle_stage: active
+run_id: a951826bb2bb4579be7078d4e691bfdc
+run_name: vaunted-toad-877
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752174004472
+status: 3
+tags: []
+user_id: Rahul

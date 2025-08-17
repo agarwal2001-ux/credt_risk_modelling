@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/baseline%20model/project_name/mlruns/780111206525596730/9ff8f2eea085486580a5c2238eea2811/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '780111206525596730'
+lifecycle_stage: active
+run_id: 9ff8f2eea085486580a5c2238eea2811
+run_name: inquisitive-kit-339
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752175564123
+status: 1
+tags: []
+user_id: Rahul

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/baseline%20model/project_name/mlruns/265011184459685695/09b61282d9aa472995fa4a975cd8f026/artifacts
+end_time: 1752174178077
+entry_point_name: ''
+experiment_id: '265011184459685695'
+lifecycle_stage: active
+run_id: 09b61282d9aa472995fa4a975cd8f026
+run_name: luminous-mink-149
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752174175253
+status: 3
+tags: []
+user_id: Rahul

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/baseline%20model/project_name/mlruns/780111206525596730/255c72cec0e94f22b58b4cb594cfc60f/artifacts
+end_time: 1752176377759
+entry_point_name: ''
+experiment_id: '780111206525596730'
+lifecycle_stage: active
+run_id: 255c72cec0e94f22b58b4cb594cfc60f
+run_name: invincible-bug-985
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752175768394
+status: 3
+tags: []
+user_id: Rahul

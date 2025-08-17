@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/baseline%20model/project_name/mlruns/265011184459685695/7f373b074cc044358f7a2b0bafb9f366/artifacts
+end_time: 1752174060780
+entry_point_name: ''
+experiment_id: '265011184459685695'
+lifecycle_stage: active
+run_id: 7f373b074cc044358f7a2b0bafb9f366
+run_name: intrigued-quail-407
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752174058000
+status: 3
+tags: []
+user_id: Rahul

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/399801132512099365/b623d72ef3fd4c7984b42e81117bcd0c/artifacts
+end_time: 1752173845296
+entry_point_name: ''
+experiment_id: '399801132512099365'
+lifecycle_stage: active
+run_id: b623d72ef3fd4c7984b42e81117bcd0c
+run_name: crawling-ox-22
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752173842143
+status: 3
+tags: []
+user_id: Rahul

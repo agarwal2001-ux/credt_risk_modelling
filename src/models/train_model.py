@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split,cross_val_score
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score,classification_report,roc_auc_score
+from sklearn.model_selection import GridSearchCV
 from xgboost import XGBClassifier
 from sklearn.preprocessing import LabelEncoder,OneHotEncoder,OrdinalEncoder
 from sklearn.model_selection import KFold,cross_val_score,StratifiedKFold
@@ -14,36 +15,25 @@ import os
 from lightgbm import LGBMClassifier
 import optuna
 from optuna.integration.mlflow import MLflowCallback
-import json
-
-encoder_path = os.path.join("models","encoder")
-os.makedirs(encoder_path,exist_ok=True)
-pipe_path = os.path.join("models","pipeline")
-os.makedirs(pipe_path,exist_ok= True)
 
 # logger configuration
-logger = logging.getLogger("training")
-logger.setLevel(logging.DEBUG)
+logger = logging.getLogger("training logs")
+logger.setLevel("debug")
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 console = logging.StreamHandler()
-console.setLevel(logging.DEBUG)
+console.setLevel("debug")
+console.formatter(formatter)
 
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-console.setFormatter(formatter)
-
-file = logging.FileHandler("train_model1.log")  # Added .log extension
-file.setLevel(logging.DEBUG)
-file.setFormatter(formatter)
-
-logger.addHandler(console)
-logger.addHandler(file)
+file = logging.FileHandler("training.log")
+file.setLevel("debug")
+file.formatter(formatter)
 
 
 # configuration of mlflow
 mlflow.set_experiment("training")
 
 def main():
-    mlflow.autolog()
 
     with mlflow.start_run():
         def read(path):
@@ -57,7 +47,7 @@ def main():
 
         def splitting(df):
             try:
-                xtrain,xtest,ytrain,ytest = train_test_split(df.iloc[:,0:45],df.iloc[:,-1],test_size=0.2,random_state=42)
+                xtrain,xtest,ytrain,ytest = train_test_split(df.iloc[:,0:46],df.iloc[:,-1],test_size=0.2,random_state=42)
                 logger.info("train_test split successful")
                 return xtrain,xtest,ytrain,ytest
             except Exception as e:
@@ -70,6 +60,7 @@ def main():
                 ytrain = lb.fit_transform(ytrain)
                 ytest = lb.transform(ytest)
                 logger.info("ytrain and ytest transformed")
+                
                 dump(lb,os.path.join(path,"label_encoder.joblib"))
                 logger.info("encoder saved successfully")
                 return ytrain,ytest
@@ -77,31 +68,64 @@ def main():
                 logger.error(f"error occured - {e}")
                 raise
 
-
-        def final_model(xtrain,ytrain,xtest,ytest,path):
+        def find_parameters(xtrain,ytrain,trial):
             try:
-                
-                    final_transformer = ColumnTransformer([
-                    ("ordinal", OrdinalEncoder(
-                        categories=[["SSC", "12TH", "UNDER GRADUATE", "GRADUATE", "POST-GRADUATE", "PROFESSIONAL", "OTHERS"]],
-                        handle_unknown="use_encoded_value", unknown_value=-1, encoded_missing_value=np.nan), ["education"]),
-                    ("onehot", OneHotEncoder(drop="first", sparse_output=False),
-                    ["maritalstatus", "gender", "last_prod_enq2", "first_prod_enq2"])
-                    ], remainder="passthrough")
+                with mlflow.start_run(nested=True):
+                    transformer = ColumnTransformer(
+                        [("ordinal",OrdinalEncoder(categories=[["SSC","12TH","UNDER GRADUATE","GRADUATE","POST-GRADUATE","PROFESSIONAL","OTHERS"]],
+                        handle_unknown="use_encoded_value",
+                        unknown_value= -1,
+                        encoded_missing_value=np.nan),["education"]),
+                        ("onehot",OneHotEncoder(drop="first",sparse_output=False),["maritalstatus","gender","last_prod_enq2","first_prod_enq2"])
+                        ]
+                        , remainder="passthrough")
 
-                    final_pipe = Pipeline([
-                        ("pre-processing", final_transformer),
-                        ("model", LGBMClassifier(n_jobs=-1))
+
+
+                    n_estimators = trial.suggest_int("model__n_estimators",10,1000)
+                    max_depth = trial.suggest_int("model__max_depth",2,10)
+                    subsample = trial.suggest_float("model__subsample",0.1,0.9)
+                    learning_rate = trial.suggest_float("model__learning_rate",0.001,1)
+                    reg_lambda = trial.suggest_int("model__reg_lambda",1,1000)
+                    colsample_bylevel = trial.suggest_float("model__colsample_bylevel",0.2,0.8)
+                    eta = trial.suggest_float("model__eta",0.1,1)
+                    grow_policy = trial.suggest_categorical("model__grow_policy",["depthwise","lossguide"])
+                    min_child_weight = trial.suggest_float("model__min_child_weight",0.1,1)
+
+
+                    pipe2 = Pipeline([
+                    ("pre-processing",transformer),
+                    ("model",LGBMClassifier(n_jobs=-1,n_estimators=n_estimators,max_depth=max_depth,
+                                        subsample=subsample,learning_rate=learning_rate,reg_lambda=reg_lambda,
+                                        colsample_bylevel=colsample_bylevel,eta=eta))
                     ])
+                    sf = StratifiedKFold(n_splits=5,shuffle=True)
+                    score = cross_val_score(pipe2,xtrain,ytrain,cv=sf,scoring="accuracy").mean()
+                    return score
+                
+            except Exception as e:
+                logger.error(f"error occured {e}")
+                raise
+        
 
-                    final_pipe.fit(xtrain, ytrain)
-                    dump(final_pipe, os.path.join(path, "final_model.joblib"))
-                    logger.info("Final trained model saved")
+        def final_model(xtrain,ytrain_transformed,best_params):
+            try:
+                final_transformer = ColumnTransformer([
+                ("ordinal", OrdinalEncoder(
+                    categories=[["SSC", "12TH", "UNDER GRADUATE", "GRADUATE", "POST-GRADUATE", "PROFESSIONAL", "OTHERS"]],
+                    handle_unknown="use_encoded_value", unknown_value=-1, encoded_missing_value=np.nan), ["education"]),
+                ("onehot", OneHotEncoder(drop="first", sparse_output=False),
+                ["maritalstatus", "gender", "last_prod_enq2", "first_prod_enq2"])
+                ], remainder="passthrough")
 
-                    pred = final_pipe.predict(xtest)
-                    ac_score = accuracy_score(ytest,pred)
-                    report_dict = classification_report(ytest, pred, output_dict=True)
+                final_pipe = Pipeline([
+                    ("pre-processing", final_transformer),
+                    ("model", LGBMClassifier(n_jobs=-1, **best_params))
+                ])
 
+                final_pipe.fit(xtrain, ytrain_transformed)
+                dump(final_pipe, os.path.join("models", "final_model.joblib"))
+                logger.info("Final trained model saved")
             
             except Exception as e:
                 logger.error(f"error occured {e}")
@@ -109,18 +133,31 @@ def main():
 
         
         # call functions
-        
-        df = read(path=os.path.join("data","final_model"))
+        df = read(path=os.path.join("data","processed"))
         xtrain,xtest,ytrain,ytest = splitting(df)
+        ytrain_transformed, ytest_transformed = encoder(ytrain,ytest,os.path.join("models"))
         
-        ytrain_transformed, ytest_transformed = encoder(ytrain,ytest,encoder_path)
+        # mlflow with optuna integration
+        mlflow_callback = MLflowCallback(
+            tracking_uri=mlflow.get_tracking_uri(),
+            metric_name="accuracy"
+        )
+        def objective(trial):
+            return find_parameters(xtrain, ytrain_transformed, trial)
+        
+        study = optuna.create_study(direction="maximize", study_name="credit_risk_model")
+        study.optimize(objective, n_trials=30, callbacks=[mlflow_callback])
+
+        best_params = study.best_params
+        dump(best_params, os.path.join("models","best_params.joblib"))
+        logger.info(f"Best parameters: {best_params}")
 
         # save the best model
-        md = final_model(xtrain,ytrain_transformed,xtest,ytest_transformed,pipe_path)
+        md = final_model(xtrain,ytrain_transformed,best_params)
 
 
 
-if __name__ == "__main__":
+if __file__ == "__main__":
     main()
 
 

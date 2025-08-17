@@ -24,7 +24,7 @@ logger.addHandler(console)
 logger.addHandler(file)
 
 # ---------------- MLflow Setup ----------------
-mlflow.set_experiment("knn-imputation")
+mlflow.set_experiment("latest_version")
 
 def main():
     with mlflow.start_run():

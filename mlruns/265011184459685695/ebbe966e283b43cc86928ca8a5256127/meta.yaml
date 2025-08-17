@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/baseline%20model/project_name/mlruns/265011184459685695/ebbe966e283b43cc86928ca8a5256127/artifacts
+end_time: 1752174831960
+entry_point_name: ''
+experiment_id: '265011184459685695'
+lifecycle_stage: active
+run_id: ebbe966e283b43cc86928ca8a5256127
+run_name: crawling-snake-242
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752174829170
+status: 3
+tags: []
+user_id: Rahul

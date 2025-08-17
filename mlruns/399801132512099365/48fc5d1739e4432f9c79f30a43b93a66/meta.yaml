@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/399801132512099365/48fc5d1739e4432f9c79f30a43b93a66/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '399801132512099365'
+lifecycle_stage: active
+run_id: 48fc5d1739e4432f9c79f30a43b93a66
+run_name: judicious-mink-375
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752174304669
+status: 1
+tags: []
+user_id: Rahul
