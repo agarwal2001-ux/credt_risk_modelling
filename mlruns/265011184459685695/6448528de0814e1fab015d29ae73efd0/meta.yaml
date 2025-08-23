@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Rahul/Desktop/baseline%20model/project_name/mlruns/265011184459685695/6448528de0814e1fab015d29ae73efd0/artifacts
+end_time: 1755573596743
+entry_point_name: ''
+experiment_id: '265011184459685695'
+lifecycle_stage: active
+run_id: 6448528de0814e1fab015d29ae73efd0
+run_name: masked-bee-169
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755573595429
+status: 3
+tags: []
+user_id: Rahul
